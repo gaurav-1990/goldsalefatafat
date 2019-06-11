@@ -1,5 +1,7 @@
 <?php
 session_start();
+  
+include_once ("../functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,6 +98,7 @@ session_start();
             
             <?php
               @$page=$_REQUEST['page'];
+              
               if($page=='add_product')
               {
                 include 'add_product.php';
@@ -119,6 +122,10 @@ session_start();
               if($page=='update_home_banner')
               {
                 include 'update_home_banner.php';
+              }
+              if($page=='detail')
+              {
+                include 'detail.php';
               }
             ?>
           

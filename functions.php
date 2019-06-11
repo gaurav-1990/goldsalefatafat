@@ -43,7 +43,7 @@ class Register {
             $res = $stmt->fetch();
 
             $_SESSION['x'] = $_REQUEST['username'];
-            header('location:dashboard.php');
+            header('location:dashboard.php?page=detail');
         } else {
             echo "LOGIN FAILED!!!!!!!";
         }
@@ -55,9 +55,16 @@ class Register {
         return $stmt->fetchAll();
     }
 
-    public function fetch_product($id) {
+    public function fetch_record() {
+        $stmt = $this->dbConn->prepare("SELECT * FROM product");
+        $stmt->execute();
+        return $row=$stmt->rowCount();
+
+    }
+
+    public function fetch_product($p_id) {
         $stmt = $this->dbConn->prepare("select * from product where pid=?");
-        $stmt->execute([$id]);
+        $stmt->execute([$p_id]);
         return $stmt->fetchAll();
     }
 

@@ -2,6 +2,8 @@
 include_once ("includes/header.php");
 include_once ("functions.php");
 @$id=$_GET['id'];
+// print_r($_GET['id']);
+// die;
 
 $obj = new Register;
 $result = $obj->fetch_product($id);
@@ -54,14 +56,10 @@ foreach ($result as $key => $res) {
 
                             <div class="tab-pane active" >
                                 <div class="pro-large-img">
-                                    <img src="admin/<?= $img2 ?>" alt="" />
-                                    <a class="popup-link" href="admin/<?= $img2 ?>">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                                    <img src="<?=BASEURL?>admin/<?= $img2 ?>" alt="" />
+                                    <a class="popup-link" href="<?=BASEURL?>admin/<?= $img2 ?>">View larger <i class="fa fa-search-plus" aria-hidden="true"></i></a>
                                 </div>
                             </div>
-
-
-
-
                         </div>
 
 
@@ -72,7 +70,7 @@ foreach ($result as $key => $res) {
                             foreach ($result3 as $res3) {
                                 $img3 = $res3['img'];
                                 ?>
-                                <div class="active"><a href='javascript:void(0)' data-toggle="tab"><img class="img-replace" src="admin/<?= $img3 ?>" alt="" /></a></div>
+                                <div class="active"><a href='javascript:void(0)' data-toggle="tab"><img class="img-replace" src="<?=BASEURL?>admin/<?= $img3 ?>" alt="" /></a></div>
 
 
                             <?php }?>
@@ -103,7 +101,8 @@ foreach ($result as $key => $res) {
                                 ?>
                                 <span class="selling">Selling Price : <cut><i class="fa fa-inr" aria-hidden="true"></i><?php echo $res['sell_price']; ?></cut>  <i class="fa fa-inr" aria-hidden="true"></i> <?php echo $res['actual_sell_price']; ?></span></br>
                                 <?php
-                            }
+                            } ?>
+                            <!-- <?php 
                             if ($res["in_stock"] == "1" && $res['quantity1'] == "") {
                                 ?>
 
@@ -115,7 +114,7 @@ foreach ($result as $key => $res) {
                                     color: #cd842a;
                                     ">Out Of Stock </h4>
                                 <?php }
-                                ?>
+                                ?> -->
                         </div>
 
                         <div class="price-box">
@@ -134,21 +133,34 @@ foreach ($result as $key => $res) {
 
                        <div class="closed">
                             <a href="#">Booking: <?= $res["is_booking"] == "1" ? "Open" : "Closed" ?></a>
-
-
                         </div>
 
 
                       
-
+                        <?php
+                            if($res['is_booking'] == '1')
+                            {
+                        ?>
                       
                         <div class="book-time">
-                            <?= $res["b_open"] != "" ? " <p> Booking Open: " . $res["b_open"] . "</p>" : "" ?>  
                             
-
-                           
-
+                            <!-- <?= $res["b_open"] != "" ? " <p> Booking Open: " . $res["b_open"] . "</p>" : "" ?> -->
+                            <?= $res["b_open"] != "" ? " <p> Open Till: " . $res["b_close"] . "</p>" : "" ?>   
                         </div>
+
+                        <?php } 
+
+                        else
+                        {
+                        ?>
+
+                        <div class="book-time">
+                            
+                            <?= $res["b_open"] != "" ? " <p> Open On: " . $res["b_open"] . "</p>" : "" ?>
+                            <!-- <?= $res["b_open"] != "" ? " <p> Open Till: " . $res["b_close"] . "</p>" : "" ?> -->   
+                        </div>
+
+                        <?php } ?>
 
 
                         <div class="short-desc">
@@ -161,12 +173,12 @@ foreach ($result as $key => $res) {
                                 <a href="tel:+<?= $res["phone_no"] ?>">Call For Purchase: <?= $res["phone_no"] ?></a>
                             </form>
                         </div>
-                        <div class="book-time">
+                        <!-- <div class="book-time">
                             <?= $res["b_open"] != "" ? " <p> Booking Open: " . $res["b_open"] . "</p>" : "" ?>  
-                           <!--
+                           
                             <?= $res["b_open"] != "" ? " <p> Booking Closed: " . $res["b_close"] . "</p>" : "" ?>  
-                            -->
-                        </div>
+                            
+                        </div> -->
                         <div class="color-list">
                             <a href="#"></a>
                             <a href="#"></a>

@@ -1,3 +1,7 @@
+<?php
+define("BASEURL", "http://".$_SERVER['SERVER_NAME'] . ":8080/goldsalefatafat/");
+//define("BASEURL", "http://goldsalefatafat.in/");
+?>
 <!doctype html>
 <html class="" lang="zxx">
     
@@ -13,20 +17,20 @@
         <!-- Place favicon.ico in the root directory -->
 		
 		<!-- all css here -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/ionicons.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/meanmenu.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="css/et-line-icon.css">
-        <link rel="stylesheet" href="css/Pe-icon-7-stroke.css">
-        <link rel="stylesheet" href="css/icofont.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/animate.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/ionicons.min.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/owl.carousel.min.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/meanmenu.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/magnific-popup.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/et-line-icon.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/Pe-icon-7-stroke.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/icofont.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/style.css">
+        <link rel="stylesheet" href="<?=BASEURL?>css/responsive.css">
         <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="<?=BASEURL?>js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
         
@@ -39,7 +43,7 @@
 					<div class="row">
 						<div class="col-md-3 col-xs-5">
 							<div class="logo">
-								<a href="index.php"><img src="img/logo/logo.png" alt="" /></a>
+								<a href="<?=BASEURL?>index.php"><img src="<?=BASEURL?>img/logo/logo.png" alt="" /></a>
 							</div>
 						</div>
                                             <div class="col-md-5 col-sm-12 col-xs-7 ">

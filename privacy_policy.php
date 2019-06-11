@@ -35,7 +35,7 @@ $result = $obj->fetch_data();
 		</p>
             </div>
                 <div class="col-md-4">
-                    <img src="img/porduct/side-ring.jpg" alt=""/>
+                    <img src="<?=BASEURL?>img/porduct/side-ring.jpg" alt=""/>
                 </div>
         </div>
 		

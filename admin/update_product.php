@@ -6,12 +6,14 @@ $id = $_GET['id'];
 $obj = new Register;
 $res = $obj->getUpdate($id);
 
-if (isset($_POST["save"])) {
+if (isset($_POST["save"])) 
+{
 
 
     $obj->update($_POST, $id);
     $res = $obj->getUpdate($id);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +22,7 @@ if (isset($_POST["save"])) {
         <title></title>
     </head>
     <body>
-    <div class="upd_prod">
+    <div class="add_prod">
     <center><u><h4>UPDATE PRODUCT</h4></u></center><br>
     <form enctype="multipart/form-data" method="POST">
         <div class="row">
@@ -43,7 +45,7 @@ if (isset($_POST["save"])) {
                 <label>Booking Close Time   </label>
                 <input type="text" class="form-control" name="b_close" placeholder="Booking Close Time" value="<?= $res["b_close"] ?>" />
             </div>
-
+</div>
             <div class="row">
                 <div class="form-group col-md-2">
                     <label class="check-dtl">Is in stock
@@ -59,7 +61,7 @@ if (isset($_POST["save"])) {
                 </div>
             </div>
 
-        </div>
+        
 
         <div class="row">
             

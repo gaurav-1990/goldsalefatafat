@@ -10,11 +10,11 @@
                         <div class="footer-about mb-30">
 
                             <ul class="content" >
-                                <li><a href="about_us.php">About Us</a></li>
-                                <li><a href="privacy_policy.php">Privacy Policy</a></li>
-                                <li><a href="tnc.php">Terms & Conditions</a></li>
+                                <li><a href="<?=BASEURL?>about_us.php">About Us</a></li>
+                                <li><a href="<?=BASEURL?>privacy_policy.php">Privacy Policy</a></li>
+                                <li><a href="<?=BASEURL?>tnc.php">Terms & Conditions</a></li>
                                 </br>
-                                <li><a href="return_policy.php">Return Policy</a></li>
+                                <li><a href="<?=BASEURL?>return_policy.php">Return Policy</a></li>
                                 <!-- <li><a href="legal.php">Legal </a></li>
                                 <li><a href="contact.php">Contact Us </a></li> -->
                             </ul>
@@ -106,17 +106,28 @@
     </div>
     <!-- footer-area-end -->
     <!-- all js here -->
-    <script src="js/vendor/jquery-1.12.0.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/jquery.meanmenu.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="<?=BASEURL?>js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="<?=BASEURL?>js/bootstrap.min.js"></script>
+    <script src="<?=BASEURL?>js/imagesloaded.pkgd.min.js"></script>
+    <script src="<?=BASEURL?>js/owl.carousel.min.js"></script>
+    <script src="<?=BASEURL?>js/isotope.pkgd.min.js"></script>
+    <script src="<?=BASEURL?>js/jquery.counterup.min.js"></script>
+    <script src="<?=BASEURL?>js/jquery.meanmenu.js"></script>
+   
+    <script src="<?=BASEURL?>js/waypoints.min.js"></script>
+    <script src="<?=BASEURL?>js/plugins.js"></script>
+     <script src="<?=BASEURL?>js/jquery.magnific-popup.min.js"></script>
+     
+    <script src="<?=BASEURL?>js/main.js"></script>
+ <script type="text/javascript">
+                        
+                        $('.image-link,.popup-link').magnificPopup({
+  type: 'image',
+  gallery:{
+    enabled:true
+  }
+});
+                    </script>
     <script type="text/javascript">
         $('ul.nav li.dropdown').hover(function() {
             $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);

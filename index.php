@@ -5,27 +5,32 @@ $obj = new Register;
 $result = $obj->fetch_data();
 ?>
 <style type="text/css">
-table {
+table 
+{
   background: #fff none repeat scroll 0 0;
   border-bottom: 1px solid #ebebeb;
   margin: 0 0 20px;
   width: 100%;
 }
-  tr {
+  tr 
+  {
   border-top: 1px solid #ebebeb;
 }
-  tr td {
+  tr td 
+  {
   padding: 10px 20px 11px;
   /* white-space: nowrap; */
 }
- tr td:first-child {
+ tr td:first-child 
+ {
   border-right: 1px solid #ebebeb;
   color: #333;
   font-weight: 700;
   width: 30%;
   white-space: nowrap;
 }
- tr.even {
+ tr.even 
+ {
   background: #fdfdfd none repeat scroll 0 0;
 }
 
@@ -33,10 +38,10 @@ table {
 <section>
     <div class="slider-active owl-carousel">
         <div>
-            <img src="img/com.jpg" alt=""/>
+            <img src="<?=BASEURL?>img/com.jpg" alt=""/>
         </div> 
         <div>
-            <img src="img/banner/shop-banner-1.jpg" alt=""/>
+            <img src="<?=BASEURL?>img/banner/shop-banner-1.jpg" alt=""/>
 
         </div> 
     </div>
@@ -53,7 +58,11 @@ foreach ($result as $key => $res) {
     $p_id = $res['pid'];
     $result2 = $obj->image($p_id);
     $img2 = $result2['img'];
-    ?>       
+    ?>
+    <?php
+    if($res['in_stock'] == '1')
+    {
+    ?>      
     <div class="shop-area ">
         <div class="container">
         <div class="for-border-gv">
@@ -69,12 +78,12 @@ foreach ($result as $key => $res) {
 
                             <div class="tab-pane active" >
                                 <div class="pro-large-img">
-                                    <img src="admin/<?= $img2 ?>" alt="" />
+                                    <img src="<?=BASEURL?>admin/<?= $img2 ?>" alt="" />
 
                                  
                                 </div>
                                 <div class="home-book">
-                                       <a href="product.php?id=<?= $p_id?>" target="_blank">VIEW DETAILS</a>
+                                       <a href="<?=BASEURL?>product/<?= $p_id?>" target="_blank">VIEW DETAILS</a>
                                 </div>
                             </div>
 
@@ -121,8 +130,9 @@ foreach ($result as $key => $res) {
                             if ($res['sell_price'] != "" || $res['actual_sell_price'] != "") {
                                 ?>
                                 <span class="selling">Selling Price : <cut><i class="fa fa-inr" aria-hidden="true"></i><?php echo $res['sell_price']; ?></cut>  <i class="fa fa-inr" aria-hidden="true"></i> <?php echo $res['actual_sell_price']; ?></span>
-                                <?php
-                            }
+                                <?php }?>
+
+                                <!-- <?php
                             if ($res["in_stock"] == "1" && $res['quantity1'] == "") {
                                 ?>
 
@@ -133,8 +143,7 @@ foreach ($result as $key => $res) {
                                     font-size: 20px;
                                     color: #cd842a;
                                     ">Out Of Stock </h4>
-                                <?php }
-                                ?>
+                                <?php } ?> -->
                         </div>
 
                         <div class="price-box">
@@ -143,30 +152,44 @@ foreach ($result as $key => $res) {
                                 ?>
                                 <span class="offer">Offer Price : <i class="fa fa-inr" aria-hidden="true"></i> <blink class="blink_me"><?php echo $res['offer_price']; ?></blink></span>
                                 </br>
-                                <?php
+                                <!-- <?php
                             }
                             if ($res["in_stock"] == "1" && $res['quantity2'] == "") {
                                 ?>
                                 
-                            <?php } ?>
+                            <?php } ?> -->
                         </div>
                         <div class="closed">
                             <a href="#">Booking: <?= $res["is_booking"] == "1" ? "Open" : "Closed" ?></a>
-
-
                         </div>
 
 
                       
-
+                        <?php
+                            if($res['is_booking'] == '1')
+                            {
+                        ?>
                       
                         <div class="book-time">
-                            <?= $res["b_open"] != "" ? " <p> Booking Open: " . $res["b_open"] . "</p>" : "" ?>  
-                             <?= $res["b_open"] != "" ? " <p> Booking Closed: " . $res["b_close"] . "</p>" : "" ?>   
-
-                           
-
+                            
+                            <!-- <?= $res["b_open"] != "" ? " <p> Booking Open: " . $res["b_open"] . "</p>" : "" ?> -->
+                            <?= $res["b_open"] != "" ? " <p> Open Till: " . $res["b_close"] . "</p>" : "" ?>   
                         </div>
+
+                        <?php } 
+
+                        else
+                        {
+                        ?>
+
+                        <div class="book-time">
+                            
+                            <?= $res["b_open"] != "" ? " <p> Open On: " . $res["b_open"] . "</p>" : "" ?>
+                            <!-- <?= $res["b_open"] != "" ? " <p> Open Till: " . $res["b_close"] . "</p>" : "" ?> -->   
+                        </div>
+
+                        <?php } ?>
+                        
                         <div class="color-list">
                             <a href="#"></a>
                             <a href="#"></a>
@@ -179,6 +202,7 @@ foreach ($result as $key => $res) {
 
         </div>
     </div>
+<?php } ?>
    <!--  <div class="pro-info-area ptb-30">
         <div class="container">
             <div class="pro-info-box">
