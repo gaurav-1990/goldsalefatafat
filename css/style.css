@@ -370,6 +370,7 @@ padding: 20px 70px;
 }
 .header-top {
   padding: 12px 0;
+  box-shadow: 0px 2px 4px #c3c3c3;
 }
 .logo {width: 88%;margin-top: 8px;}
 .menu-area{}
@@ -5064,6 +5065,15 @@ text-transform: uppercase;}
     border: #b1b1b1 1px solid;
     padding: 10px 6px;
     margin: 23px 0px;
+}
+
+.for-border-gv .right-im{
+ /* overflow: hidden; */
+ width: 100%;
+}
+.for-border-gv .right-im img{
+ width: 65%;
+ float: right;
 }
 
 .about-setting {}

@@ -83,7 +83,7 @@ foreach ($result as $key => $res) {
                                  
                                 </div>
                                 <div class="home-book">
-                                       <a href="<?=BASEURL?>product/<?= $p_id?>" target="_blank">VIEW DETAILS</a>
+                                       <a href="<?=BASEURL?>product/<?= $p_id?>">VIEW DETAILS</a>
                                 </div>
                             </div>
 
@@ -108,7 +108,7 @@ foreach ($result as $key => $res) {
 
                     </div>
                 </div>
-              <div class="col-xs-12 col-sm-6 col-md-7">
+              <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="product-details">
 
                         <h2 class="pro-d-title"><?php echo $res['p_name']; ?></h2>
@@ -197,6 +197,13 @@ foreach ($result as $key => $res) {
 
                     </div>
                 </div>
+                
+                <div class="col-xs-12 col-sm-6 col-md-4">                   
+                    <div class="right-im">
+                       <a href="<?=BASEURL?>product/<?= $p_id?>"><img src="<?=BASEURL?>img/buynow.png"/></a>
+                   </div>
+                </div>
+                
             </div>
         </div>
 
